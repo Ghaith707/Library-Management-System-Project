@@ -1,0 +1,53 @@
+library = [
+    {"title": "البداية والنهاية", "author": "ابن كثير", "year": 1351},
+    {"title": "تاريخ الطبري", "author": "محمد بن جرير الطبري", "year": 915},
+    {"title": "مقدمة ابن خلدون", "author": "ابن خلدون", "year": 1377},
+    {"title": "حي بن يقظان", "author": "ابن طفيل", "year": 1165},
+    {"title": "الشفاء", "author": "ابن سينا", "year": 1020},
+]
+
+def add_book():
+
+    book = {"title": "الكامل في التاريخ", "author": "ابن الأثير", "year": 1231}
+    library.append(book)
+    print("تمت إضافة كتاب جديد: 'الكامل في التاريخ' من تأليف 'ابن الأثير' سنة 1231.\n")
+
+def show_books():
+    if not library:
+        print("المكتبة فارغة حالياً.\n")
+    else:
+        print("قائمة الكتب المتوفرة في المكتبة:")
+        for i, book in enumerate(library, 1):
+            print(f"{i}. {book['title']} - {book['author']} ({book['year']})")
+        print("تم عرض جميع الكتب.\n")
+
+def search_book():
+  
+    title = "مقدمة ابن خلدون"
+    for book in library:
+        if book["title"] == title:
+            print(f"تم العثور على الكتاب: {book['title']} - {book['author']} ({book['year']})\n")
+            return
+    print("الكتاب غير موجود.\n")
+
+def delete_book():
+    
+    title = "حي بن يقظان"
+    for book in library:
+        if book["title"] == title:
+            library.remove(book)
+            print(f"تم حذف الكتاب '{title}' من المكتبة.\n")
+            return
+    print("لم يتم العثور على الكتاب المطلوب للحذف.\n")
+
+def main():
+    print("=== نظام إدارة المكتبة البسيط ===")
+    show_books()       
+    add_book()         
+    search_book()      
+    delete_book()      
+    show_books()       
+    print("انتهى البرنامج بنجاح، شكراً لاستخدامك النظام.")
+
+
+main()
